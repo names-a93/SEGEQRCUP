@@ -6,6 +6,11 @@ import getpass
 import os
 import qrcode
 
+try:
+    input = raw_input
+except NameError:
+    pass
+
 print("Please enter text to generate into qrcode")
 text_data = getpass.getpass()
 
@@ -26,5 +31,5 @@ show_img = Image.open("temp_image.png")
 show_img.show()
 
 print("Press enter to cleanup")
-raw_input()
+input()
 os.remove("temp_image.png")
